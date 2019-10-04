@@ -11,10 +11,17 @@ When(/I open the ([a-z]+) page/, page => {
   I.amOnPage(pages[page])
 })
 
-When(/I search for (.*)/, async text => {
+When(/I async search for (.*)/, async text => {
   const searchValue = await doSomeAsync(text)
   I.amOnPage('/')
   I.fillField('input[type=text]', searchValue)
+  I.click('Google Search')
+  I.waitInUrl('/search', 5)
+})
+
+When(/I search for (.*)/, async text => {
+  I.amOnPage('/')
+  I.fillField('input[type=text]', text)
   I.click('Google Search')
   I.waitInUrl('/search', 5)
 })

@@ -3,6 +3,15 @@ Feature: Business rules
   As a persona
   I want to be able to interact with a system
 
+  Scenario: do something async
+    Given I have a defined step
+    When I async search for CodeceptJS
+    Then I see text CodeceptJS
+    And I see text Quickstart
+    And I see text Guides
+    And I see text API
+
+
   Scenario: do something
     Given I have a defined step
     When I search for CodeceptJS
